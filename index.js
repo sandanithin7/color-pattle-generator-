@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const generatorButton = document.querySelector('.generator-button');
     const colourBlocks = document.querySelectorAll('.colour');
-    //color
-    function generateRandomColor(){
+
+    function generateRandomColor() {
         let chars = "0123456789abcdef";
         let colorlength = 6;
         let color = "";
@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return '#' + color;
     }
 
-   I
     function updateColor(block, color) {
         const input = block.querySelector('.colour-input');
         input.value = color;
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.execCommand('copy');
     }
 
-   
     function toggleLock(block) {
         const button = block.querySelector('.lock-toggle');
         const image = button.querySelector('img');
@@ -47,13 +45,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
     generatorButton.addEventListener('click', generatePalette);
     document.addEventListener('keydown', function(event) {
         if (event.code === 'Space') {
             generatePalette();
         }
     });
+
     colourBlocks.forEach(block => {
         block.querySelector('.lock-toggle').addEventListener('click', function() {
             toggleLock(block);
@@ -63,6 +61,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-   
     generatePalette();
 });
